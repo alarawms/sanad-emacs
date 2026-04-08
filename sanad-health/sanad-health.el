@@ -193,7 +193,7 @@ MODULE is a symbol like `agenda', returns `sanad-health-agenda'."
 ;; Evil compatibility: bind keys in normal state so vim operators
 ;; (c=change, d=delete, etc.) don't shadow our single-key bindings.
 (with-eval-after-load 'evil
-  (evil-define-key 'normal sanad-health-dashboard-mode-map
+  (evil-define-key* 'normal sanad-health-dashboard-mode-map
     "c" #'sanad-health-capture
     "t" #'sanad-health-tracker
     "l" #'sanad-health-open-log

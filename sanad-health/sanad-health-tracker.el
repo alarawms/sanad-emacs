@@ -131,7 +131,7 @@ Returns a percentage (0-100)."
 
 ;; Evil compatibility
 (with-eval-after-load 'evil
-  (evil-define-key 'normal sanad-health-tracker-mode-map
+  (evil-define-key* 'normal sanad-health-tracker-mode-map
     (kbd "RET") #'sanad-health-tracker-toggle
     "a" #'sanad-health-assign-block
     "p" #'sanad-health-pomodoro-start
