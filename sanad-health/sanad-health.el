@@ -186,8 +186,25 @@ MODULE is a symbol like `agenda', returns `sanad-health-agenda'."
     (define-key map "s" #'sanad-health-settings)
     (define-key map "g" #'sanad-health-dashboard-refresh)
     (define-key map "?" #'sanad-health-help)
+    (define-key map (kbd "RET") #'sanad-health-dashboard--goto-item)
     map)
   "Keymap for `sanad-health-dashboard-mode'.")
+
+;; Evil compatibility: bind keys in normal state so vim operators
+;; (c=change, d=delete, etc.) don't shadow our single-key bindings.
+(with-eval-after-load 'evil
+  (evil-define-key 'normal sanad-health-dashboard-mode-map
+    "c" #'sanad-health-capture
+    "t" #'sanad-health-tracker
+    "l" #'sanad-health-open-log
+    "p" #'sanad-health-pomodoro-start
+    "m" #'sanad-health-meds-take
+    "a" #'sanad-health-assign-block
+    "r" #'sanad-health-refile
+    "s" #'sanad-health-settings
+    "g" #'sanad-health-dashboard-refresh
+    "?" #'sanad-health-help
+    (kbd "RET") #'sanad-health-dashboard--goto-item))
 
 (define-derived-mode sanad-health-dashboard-mode special-mode "Sanad Health"
   "Major mode for the Sanad Health dashboard.
@@ -421,6 +438,20 @@ setup wizard instead."
   (if (fboundp 'sanad-health-capture--refile)
       (sanad-health-capture--refile)
     (user-error "Load the capture module: add 'capture to sanad-health-modules")))
+
+(defun sanad-health-dashboard--goto-item ()
+  "Jump to the org entry at point in the dashboard."
+  (interactive)
+  (let ((line (buffer-substring-no-properties
+               (line-beginning-position) (line-end-position))))
+    ;; Try to find a matching routine entry
+    (when (string-match "\\(?:[0-9:]+ +\\)?\\(?:\\[[ X]\\] +\\)?\\(.+?\\)\\(?:  \\|$\\)" line)
+      (let ((title (string-trim (match-string 1 line))))
+        (when (and (not (string-empty-p title))
+                   (file-exists-p (sanad-health-routines-file)))
+          (find-file (sanad-health-routines-file))
+          (goto-char (point-min))
+          (search-forward title nil t))))))
 
 (defun sanad-health-settings ()
   "Open the health profile settings."

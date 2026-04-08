@@ -129,6 +129,16 @@ Returns a percentage (0-100)."
     map)
   "Keymap for `sanad-health-tracker-mode'.")
 
+;; Evil compatibility
+(with-eval-after-load 'evil
+  (evil-define-key 'normal sanad-health-tracker-mode-map
+    (kbd "RET") #'sanad-health-tracker-toggle
+    "a" #'sanad-health-assign-block
+    "p" #'sanad-health-pomodoro-start
+    "n" #'sanad-health-tracker-add-note
+    "e" #'sanad-health-tracker-end-of-day
+    "g" #'sanad-health-tracker-refresh))
+
 (define-derived-mode sanad-health-tracker-mode special-mode "Sanad Tracker"
   "Major mode for the Start My Day tracker.
 \\{sanad-health-tracker-mode-map}"
