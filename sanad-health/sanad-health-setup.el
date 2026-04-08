@@ -215,6 +215,7 @@ PHASE is foundation/deficiency-correction/fine-tuning/optimize."
 
 ;;; --- Interactive Wizard ---
 
+;;;###autoload
 (defun sanad-health-setup-wizard ()
   "Run the interactive onboarding wizard for sanad-health.
 Guides the user through directory setup, profile creation,

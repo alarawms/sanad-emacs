@@ -195,6 +195,7 @@ MODULE is a symbol like `agenda', returns `sanad-health-agenda'."
   (setq-local revert-buffer-function #'sanad-health-dashboard-refresh)
   (setq buffer-read-only t))
 
+;;;###autoload
 (defun sanad-health-dashboard ()
   "Open the Sanad Health dashboard.
 On first run (when `sanad-health-directory' is nil), launches the
@@ -481,6 +482,7 @@ setup wizard instead."
 
 ;;; --- Global Keymap ---
 
+;;;###autoload
 (defvar sanad-health-command-map
   (let ((map (make-sparse-keymap)))
     (define-key map "d" #'sanad-health-dashboard)
@@ -493,6 +495,7 @@ setup wizard instead."
   "Command map for sanad-health global bindings.
 Bound to the prefix `C-c h'.")
 
+;;;###autoload
 (global-set-key (kbd "C-c h") sanad-health-command-map)
 
 (provide 'sanad-health)
