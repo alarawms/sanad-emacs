@@ -1,0 +1,102 @@
+#+TITLE: Daily Routine
+#+CATEGORY: Health
+#+FILETAGS: :sanad:
+
+* Routines
+** TODO Wake + hydrate
+   SCHEDULED: <%%(diary-daily)>
+   :PROPERTIES:
+   :EFFORT:   5min
+   :BLOCK:    morning
+   :ORDER:    1
+   :END:
+
+** TODO Morning meds
+   SCHEDULED: <%%(diary-daily)>
+   :PROPERTIES:
+   :EFFORT:   2min
+   :BLOCK:    morning
+   :ORDER:    2
+   :MEDS:     t
+   :END:
+
+** TODO Protein breakfast
+   SCHEDULED: <%%(diary-daily)>
+   :PROPERTIES:
+   :EFFORT:   20min
+   :BLOCK:    morning
+   :ORDER:    3
+   :END:
+
+** TODO Focus Block 1
+   SCHEDULED: <%%(diary-daily)>
+   :PROPERTIES:
+   :EFFORT:   90min
+   :BLOCK:    morning
+   :ORDER:    4
+   :POMODORO: t
+   :ASSIGNED:
+   :GOAL:
+   :END:
+
+** TODO Exercise break
+   SCHEDULED: <%%(diary-daily)>
+   :PROPERTIES:
+   :EFFORT:   30min
+   :BLOCK:    midday
+   :ORDER:    1
+   :END:
+
+** TODO Focus Block 2
+   SCHEDULED: <%%(diary-daily)>
+   :PROPERTIES:
+   :EFFORT:   90min
+   :BLOCK:    midday
+   :ORDER:    2
+   :POMODORO: t
+   :ASSIGNED:
+   :GOAL:
+   :END:
+
+** TODO Lunch + supplements
+   SCHEDULED: <%%(diary-daily)>
+   :PROPERTIES:
+   :EFFORT:   30min
+   :BLOCK:    midday
+   :ORDER:    3
+   :END:
+
+** TODO Focus Block 3
+   SCHEDULED: <%%(diary-daily)>
+   :PROPERTIES:
+   :EFFORT:   90min
+   :BLOCK:    afternoon
+   :ORDER:    1
+   :POMODORO: t
+   :ASSIGNED:
+   :GOAL:
+   :END:
+
+** TODO Prep for tomorrow
+   SCHEDULED: <%%(diary-daily)>
+   :PROPERTIES:
+   :EFFORT:   15min
+   :BLOCK:    afternoon
+   :ORDER:    2
+   :END:
+
+** TODO Digital sunset
+   SCHEDULED: <%%(diary-daily)>
+   :PROPERTIES:
+   :EFFORT:   5min
+   :BLOCK:    evening
+   :ORDER:    1
+   :END:
+
+** TODO Sleep on time
+   SCHEDULED: <%%(diary-daily)>
+   :PROPERTIES:
+   :EFFORT:   5min
+   :BLOCK:    evening
+   :ORDER:    2
+   :END:

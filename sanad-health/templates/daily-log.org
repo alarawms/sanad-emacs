@@ -1,0 +1,28 @@
+#+TITLE: Daily Log — %DATE%
+#+FILETAGS: :sanad:log:
+
+* Metrics
+:PROPERTIES:
+:FOCUS:
+:SLEEP:
+:ENERGY:
+:MOOD:
+:PRODUCTIVITY:
+:DOPAMINE_CTRL:
+:BEST_FOCUS_TIME:
+:WORST_FOCUS_TIME:
+:END:
+
+* Medications
+%MEDICATIONS%
+
+* Routine Completion
+%ROUTINES%
+
+* Pomodoros
+| # | Task | Project | Start | End | Completed |
+|---+------+---------+-------+-----+-----------|
+
+* Side Effects / Adjustments
+
+* Notes
