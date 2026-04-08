@@ -362,6 +362,8 @@ setup wizard instead."
 (defun sanad-health-capture ()
   "Quick capture a thought or task to the health inbox."
   (interactive)
+  (unless (memq 'sanad-health-capture sanad-health--modules-loaded)
+    (sanad-health-load-modules))
   (if (fboundp 'sanad-health-capture--do)
       (sanad-health-capture--do)
     (user-error "Load the capture module: add 'capture to sanad-health-modules")))
@@ -369,6 +371,8 @@ setup wizard instead."
 (defun sanad-health-tracker ()
   "Open the Start My Day tracker."
   (interactive)
+  (unless (memq 'sanad-health-tracker sanad-health--modules-loaded)
+    (sanad-health-load-modules))
   (if (fboundp 'sanad-health-tracker--open)
       (sanad-health-tracker--open)
     (user-error "Load the tracker module: add 'tracker to sanad-health-modules")))
@@ -376,6 +380,8 @@ setup wizard instead."
 (defun sanad-health-open-log ()
   "Open today's daily log."
   (interactive)
+  (unless (memq 'sanad-health-log sanad-health--modules-loaded)
+    (sanad-health-load-modules))
   (if (fboundp 'sanad-health-log--open-today)
       (sanad-health-log--open-today)
     (user-error "Load the log module: add 'log to sanad-health-modules")))
@@ -383,6 +389,8 @@ setup wizard instead."
 (defun sanad-health-pomodoro-start ()
   "Start a pomodoro timer."
   (interactive)
+  (unless (memq 'sanad-health-pomodoro sanad-health--modules-loaded)
+    (sanad-health-load-modules))
   (if (fboundp 'sanad-health-pomodoro--start)
       (sanad-health-pomodoro--start)
     (user-error "Load the pomodoro module: add 'pomodoro to sanad-health-modules")))
@@ -390,6 +398,8 @@ setup wizard instead."
 (defun sanad-health-meds-take ()
   "Mark a medication as taken."
   (interactive)
+  (unless (memq 'sanad-health-meds sanad-health--modules-loaded)
+    (sanad-health-load-modules))
   (if (fboundp 'sanad-health-meds--take)
       (sanad-health-meds--take)
     (user-error "Load the meds module: add 'meds to sanad-health-modules")))
@@ -397,6 +407,8 @@ setup wizard instead."
 (defun sanad-health-assign-block ()
   "Assign work to a focus block."
   (interactive)
+  (unless (memq 'sanad-health-agenda sanad-health--modules-loaded)
+    (sanad-health-load-modules))
   (if (fboundp 'sanad-health-agenda--assign-block)
       (sanad-health-agenda--assign-block)
     (user-error "Load the agenda module: add 'agenda to sanad-health-modules")))
@@ -404,6 +416,8 @@ setup wizard instead."
 (defun sanad-health-refile ()
   "Refile a brain dump item."
   (interactive)
+  (unless (memq 'sanad-health-capture sanad-health--modules-loaded)
+    (sanad-health-load-modules))
   (if (fboundp 'sanad-health-capture--refile)
       (sanad-health-capture--refile)
     (user-error "Load the capture module: add 'capture to sanad-health-modules")))
