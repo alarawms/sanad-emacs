@@ -1,0 +1,151 @@
+#+TITLE: Sanad Health Mode
+#+AUTHOR: alarawms
+#+DESCRIPTION: Emacs major mode for health and ADHD management
+
+* Sanad Health Mode
+
+A modular Emacs major mode for health and ADHD management, built on org-mode.
+
+** Features
+
+- *Dashboard* — unified view with metrics, agenda, and brain dump
+- *Agenda Integration* — routine blocks appear in your org-agenda
+- *Medication Tracking* — reminders, LOGBOOK timestamps, stack review
+- *Brain Dump* — quick capture via org-capture templates
+- *Pomodoro Timer* — customizable intervals with mode-line display
+- *Daily Logging* — 1-10 metric scales with weekly aggregation
+- *Start My Day* — interactive checklist with progress bar and streaks
+- *Setup Wizard* — guided onboarding for new users
+
+** Installation
+
+Clone this repository and add to your load path:
+
+#+begin_src elisp
+(add-to-list 'load-path "/path/to/sanad-health")
+(require 'sanad-health)
+#+end_src
+
+For Doom Emacs, add to =packages.el=:
+
+#+begin_src elisp
+(package! sanad-health :recipe (:host github :repo "alarawms/sanad-emacs"
+                                 :files ("sanad-health/*.el" "sanad-health/templates")))
+#+end_src
+
+** Quick Start
+
+Run =M-x sanad-health-dashboard=. On first launch, the setup wizard guides you through:
+
+1. Choosing a health directory (syncable location recommended)
+2. Creating your profile
+3. Adding your medications and supplements
+4. Installing default ADHD routine blocks
+5. Selecting which modules to enable
+
+** Keybindings
+
+*** Global (prefix =C-c h=)
+
+| Key       | Command                       |
+|-----------+-------------------------------|
+| =C-c h d= | Open dashboard                |
+| =C-c h a= | Health agenda                 |
+| =C-c h c= | Quick capture (brain dump)    |
+| =C-c h t= | Start My Day tracker          |
+| =C-c h l= | Log prefix                    |
+| =C-c h p= | Pomodoro prefix               |
+| =C-c h m= | Medications prefix            |
+| =C-c h s= | Settings / profile            |
+| =C-c h ?= | Context-aware help            |
+
+*** Dashboard
+
+| Key   | Action                          |
+|-------+---------------------------------|
+| =RET= | Jump to item at point           |
+| =c=   | Quick capture                   |
+| =p=   | Start pomodoro                  |
+| =t=   | Open tracker                    |
+| =l=   | Open today's log                |
+| =m=   | Mark medication taken           |
+| =a=   | Assign focus block              |
+| =g=   | Refresh                         |
+
+*** Medications (=C-c h m=)
+
+| Key | Action                     |
+|-----+----------------------------|
+| =a= | Add medication/supplement  |
+| =r= | Review stack               |
+| =v= | Evaluate supplement        |
+
+*** Pomodoro (=C-c h p=)
+
+| Key | Action                   |
+|-----+--------------------------|
+| =p= | Start pomodoro           |
+| =s= | Stop                     |
+| =e= | Extend +5 min            |
+| =d= | Log distraction          |
+| =v= | View stats               |
+
+*** Daily Log (=C-c h l=)
+
+| Key | Action                    |
+|-----+---------------------------|
+| =l= | Open today's log          |
+| =m= | Log all metrics           |
+| =q= | Quick log (3 metrics)     |
+| =w= | Weekly summary            |
+
+*** Start My Day Tracker
+
+| Key   | Action                    |
+|-------+---------------------------|
+| =RET= | Toggle item done/undone   |
+| =a=   | Assign focus block        |
+| =p=   | Start pomodoro            |
+| =n=   | Add note                  |
+| =e=   | End-of-day review         |
+| =g=   | Refresh                   |
+| =q=   | Back to dashboard         |
+
+** Modules
+
+Configure which modules to load:
+
+#+begin_src elisp
+(setq sanad-health-modules '(agenda meds capture pomodoro log tracker))
+#+end_src
+
+Each module is independent. You can load any subset.
+
+| Module    | Feature                                    |
+|-----------+--------------------------------------------|
+| =agenda=  | org-agenda integration, routine blocks      |
+| =meds=    | Medication tracking, reminders              |
+| =capture= | Brain dump via org-capture                  |
+| =pomodoro= | Pomodoro timer with mode-line display      |
+| =log=     | Daily metrics, weekly aggregation           |
+| =tracker= | Start My Day interactive checklist          |
+
+** Data Directory Structure
+
+#+begin_example
+health-dir/
+  logs/              daily logs (YYYY-MM/ subdirs)
+  routines/          routine block definitions + goals
+  meds/              medication/supplement files
+  captures/          brain dump inbox
+  profile.org        user profile and preferences
+#+end_example
+
+** Requirements
+
+- Emacs 28.1+
+- org-mode 9.6+ (bundled with Emacs)
+
+** License
+
+GPL-3.0

@@ -1,0 +1,14 @@
+#+TITLE: Changelog
+
+* v0.1.0 (2026-04-08)
+
+Initial release.
+
+- Core module with dashboard, profiles, and module loader
+- Setup wizard with medication and routine onboarding
+- Org-agenda integration with routine blocks and nightly reset
+- Medication tracking with reminders and stack review
+- Brain dump capture via org-capture templates
+- Pomodoro timer with mode-line display and distraction counter
+- Daily log with metrics and weekly aggregation
+- Start My Day tracker with progress bar and streaks
